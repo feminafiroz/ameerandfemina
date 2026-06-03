@@ -23,11 +23,11 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Wedding Invitation | A Royal Union",
+  title: "Wedding Invitation | A Royal Union | Ameer & Femina",
   description:
     "We cordially invite you to celebrate the union of two hearts. A premium cinematic wedding invitation experience.",
   openGraph: {
-    title: "Wedding Invitation | A Royal Union",
+    title: "Wedding Invitation | A Royal Union | Ameer & Femina",
     description:
       "We cordially invite you to celebrate the union of two hearts.",
     type: "website",

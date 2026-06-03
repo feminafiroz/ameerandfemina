@@ -144,19 +144,22 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #D4AF37;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2), 0 2px 5px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .music-toggle:hover {
-  background: rgba(212, 175, 55, 0.25);
-  transform: scale(1.1);
+  background: #FFFFFF;
+  border-color: #B8941F;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .music-bars {
@@ -169,6 +172,7 @@ body {
 .music-bars span {
   display: block;
   width: 3px;
+  height: 4px;
   background: #D4AF37;
   border-radius: 2px;
   transition: height 0.3s ease;

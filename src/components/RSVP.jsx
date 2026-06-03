@@ -60,7 +60,7 @@ export default function RSVP() {
         }}
       />
 
-      <div className="relative z-10 max-w-2xl mx-auto px-6">
+      <div className="relative z-10 max-w-3xl mx-auto">
         {/* Section Title */}
         <motion.div
           className="text-center"

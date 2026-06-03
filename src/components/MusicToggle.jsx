@@ -8,16 +8,31 @@ export default function MusicToggle() {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current = new Audio();
-    audioRef.current.loop = true;
-    // Audio source can be set here when a music file is available
-    // audioRef.current.src = "/music/wedding.mp3";
+    const audio = new Audio();
+    audio.loop = true;
+    audio.src = "/music/wedding.mp3";
+    audioRef.current = audio;
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+    const handleError = () => setIsPlaying(false);
+
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+    audio.addEventListener("error", handleError);
+
+    // Play immediately because the user has already clicked the wax seal to enter the invitation
+    audio.play().catch((err) => {
+      console.warn("Autoplay was blocked or audio file is missing:", err);
+      setIsPlaying(false);
+    });
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
+      audio.removeEventListener("error", handleError);
+      audio.pause();
+      audioRef.current = null;
     };
   }, []);
 
@@ -27,11 +42,10 @@ export default function MusicToggle() {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-      audioRef.current.play().catch(() => {
-        // Autoplay blocked by browser
+      audioRef.current.play().catch((err) => {
+        console.error("Failed to play audio:", err);
       });
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -40,16 +54,16 @@ export default function MusicToggle() {
       onClick={toggleMusic}
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 2, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       aria-label="Toggle music"
     >
       <div className={`music-bars ${isPlaying ? "playing" : ""}`}>
-        <span style={{ height: isPlaying ? "8px" : "4px" }} />
-        <span style={{ height: isPlaying ? "14px" : "4px" }} />
-        <span style={{ height: isPlaying ? "6px" : "4px" }} />
-        <span style={{ height: isPlaying ? "12px" : "4px" }} />
+        <span />
+        <span />
+        <span />
+        <span />
       </div>
     </motion.button>
   );
