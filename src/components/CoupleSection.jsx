@@ -128,7 +128,7 @@ export default function CoupleSection() {
                 className="text-2xl md:text-3xl gold-text"
                 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 , paddingBottom: "1rem" }}
               >
-                Ameer Fahadh
+                Ameer Fahad
               </h3>
               <p
                 className="text-xs tracking-[4px] uppercase mb-3"
