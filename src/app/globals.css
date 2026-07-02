@@ -97,9 +97,13 @@ body {
   border-color: rgba(212, 175, 55, 0.3);
 }
 
-/* ===== GOLD GRADIENT TEXT ===== */
 .gold-text {
-  background: linear-gradient(135deg, #D4AF37 0%, #E6C068 50%, #D4AF37 100%);
+  background: linear-gradient(
+    135deg,
+    #8F6A00 0%,
+    #B8860B 50%,
+    #8F6A00 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

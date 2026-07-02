@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 export default function Hero() {
   const scrollToNext = () => {
@@ -19,6 +23,36 @@ export default function Hero() {
         className="absolute inset-0 z-0 hidden md:block opacity-15 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: "url('/images/herobg.webp')" }}
       />
+
+      {/* Background Swiper (Mobile Only) */}
+      <div className="absolute inset-0 z-0 md:hidden pointer-events-none">
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          loop
+          speed={1200}
+          style={{ width: "100%", height: "100%" }}
+        >
+          {["/images/img1.png", "/images/img2.png", "/images/img3.png"].map(
+            (src, i) => (
+              <SwiperSlide key={i} style={{ width: "100%", height: "100%" }}>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url('${src}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    opacity: 0.25,
+                  }}
+                />
+              </SwiperSlide>
+            )
+          )}
+        </Swiper>
+      </div>
 
       {/* Background Gradient Layers */}
       <div className="absolute inset-0 z-0">
@@ -83,7 +117,7 @@ export default function Hero() {
         {/* Bismillah */}
         <motion.div
           className=""
-          style={{ color: "rgba(138,115,85,0.8)", fontFamily: "serif", fontSize: "clamp(0.9rem, 5vw, 2.6rem)",
+          style={{ color: "rgba(138,115,85,0.8)", fontFamily: "serif", fontSize: "clamp(2.4rem, 10vw, 2.6rem)",
             direction: "rtl", textAlign: "center", marginBottom: "0.5rem" }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -31,16 +31,15 @@ function CountUnit({ value, label, delay }) {
       <motion.div
         className="relative w-20 h-24 sm:w-24 sm:h-28 md:w-32 md:h-36 flex items-center justify-center rounded-2xl"
         style={{
-          background: "rgba(255,255,255,0.03)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: "1px solid rgba(212,175,55,0.15)",
+          background: "linear-gradient(135deg, rgba(253, 248, 235, 0.95) 0%, rgba(247, 237, 212, 0.95) 100%)",
+          border: "1.5px solid rgba(212, 175, 55, 0.3)",
           boxShadow:
-            "0 0 30px rgba(212,175,55,0.05), inset 0 1px 0 rgba(255,255,255,0.05)",
+            "0 10px 30px rgba(212, 175, 55, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)",
         }}
         whileHover={{
-          borderColor: "rgba(212,175,55,0.3)",
-          boxShadow: "0 0 40px rgba(212,175,55,0.1)",
+          borderColor: "rgba(212, 175, 55, 0.6)",
+          boxShadow: "0 15px 35px rgba(212, 175, 55, 0.2)",
+          y: -4,
           transition: { duration: 0.3 },
         }}
       >
@@ -84,7 +83,7 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section id="countdown" className="relative  flex flex-col items-center justify-center overflow-hidden"  style={{ paddingTop: "1rem", paddingBottom: "6rem" }} >
+    <section id="countdown" className="relative  flex flex-col items-center justify-center overflow-hidden"  style={{ paddingTop: "1rem", paddingBottom: "6rem" , paddingLeft:"0.5rem",paddingRight:"0.5rem" }} >
       {/* Background */}
       <div
         className="absolute inset-0"
@@ -128,7 +127,7 @@ export default function Countdown() {
         </motion.div>
 
         {/* Countdown Grid */}
-        <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8">
+        <div className="flex items-center justify-center gap-2 md:gap-8" >
           <CountUnit value={timeLeft.days} label="Days" delay={0.1} />
           <motion.span
             className="text-2xl md:text-3xl gold-text self-start mt-8 md:mt-10"

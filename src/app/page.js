@@ -117,19 +117,21 @@ export default function Home() {
 
               <Countdown />
 
-              <EventDetails />
-
-              <QuoteSection
+               <QuoteSection
                 arabic="رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا"
                 english="Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous."
                 reference="Surah Al-Furqan [25:74]"
               />
 
+              <EventDetails />
+
+             
+
               {/* <Gallery /> */}
 
               {/* <Wishes /> */}
 
-              <RSVP />
+              {/* <RSVP /> */}
 
               <Footer />
               </div>

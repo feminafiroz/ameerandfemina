@@ -12,7 +12,7 @@ export default function QuoteSection({ arabic, english, reference, alternate }) 
           : "linear-gradient(180deg, #F8F4EC 0%, #FBF8F2 50%, #F8F4EC 100%)",
       }}
     >
-      <div className="relative py-24 md:py-32 overflow-hidden  " style={{ paddingTop: "8rem", paddingBottom: "8rem" }}>
+      <div className="relative py-24 md:py-32 overflow-hidden  " style={{ paddingTop: "9rem", paddingBottom: "9rem" ,paddingLeft:"0.5rem",paddingRight:"0.5rem"}}>
 
         {/* Light cream background */}
         <div
@@ -66,7 +66,7 @@ export default function QuoteSection({ arabic, english, reference, alternate }) 
           style={{
             color: "rgba(139,100,20,0.9)",
             fontFamily: "serif",
-            fontSize: "clamp(1rem, 4.4vw, 2.2rem)",
+            fontSize: "clamp(1.5rem, 5.7vw, 2.2rem)",
             direction: "rtl",
             textAlign: "center",
             textShadow: "0 0 30px rgba(212,175,55,0.1)",
@@ -97,7 +97,7 @@ export default function QuoteSection({ arabic, english, reference, alternate }) 
 
         {/* English Translation */}
         <motion.p
-          className="mb-7"
+          className=""
           style={{
             color: "rgba(60,45,20,0.65)",
             fontFamily: "var(--font-cormorant)",
@@ -105,6 +105,7 @@ export default function QuoteSection({ arabic, english, reference, alternate }) 
             fontStyle: "italic",
             lineHeight: 2,
             letterSpacing: "0.01em",
+            paddingBottom: "1rem",
           }}
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}

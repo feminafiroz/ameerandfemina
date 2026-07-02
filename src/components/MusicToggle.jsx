@@ -10,7 +10,7 @@ export default function MusicToggle() {
   useEffect(() => {
     const audio = new Audio();
     audio.loop = true;
-    audio.src = "/music/wedding.mp3";
+    audio.src = "/music/weddingsong.mp3";
     audioRef.current = audio;
 
     const handlePlay = () => setIsPlaying(true);

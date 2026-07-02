@@ -43,7 +43,7 @@ const timelineEvents = [
 
 export default function Timeline() {
   return (
-    <section id="timeline" className="relative overflow-hidden  flex flex-col items-center justify-center" style={{ paddingTop: "2rem", paddingBottom: "6rem" }}>
+    <section id="timeline" className="relative overflow-hidden  flex flex-col items-center justify-center" style={{ paddingTop: "2rem", paddingBottom: "6rem" , paddingLeft:"0.5rem",paddingRight:"0.5rem" }}>
       {/* Background Glow */}
       <div
         className="absolute inset-0"

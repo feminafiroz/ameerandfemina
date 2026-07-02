@@ -60,7 +60,7 @@ export default function RSVP() {
         }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto w-full" style={{ paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
         {/* Section Title */}
         <motion.div
           className="text-center"
@@ -107,6 +107,9 @@ export default function RSVP() {
             border: "1px solid rgba(212,175,55,0.1)",
             boxShadow: "0 8px 60px rgba(0,0,0,0.3)",
             padding: "8px 30px 30px 30px",
+            paddingBottom: "1rem",
+            paddingTop: "1rem",
+
           }}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,6 +122,7 @@ export default function RSVP() {
             style={{
               background:
                 "linear-gradient(90deg, transparent, #D4AF37, transparent)",
+
             }}
           />
 
@@ -188,7 +192,7 @@ export default function RSVP() {
                         top:
                           focusedField === field.name || formData[field.name]
                             ? "8px"
-                            : "18px",
+                            : "20px",
                         transition: "all 0.3s ease",
                         letterSpacing: "1px",
                       }}
@@ -203,7 +207,7 @@ export default function RSVP() {
                         color={
                           focusedField === field.name
                             ? "#D4AF37"
-                            : "rgba(0, 0, 0, 0.7)"
+                            : "rgba(0, 0, 0, 0.55)"
                         }
                         style={{ transition: "color 0.3s ease" }}
                       />
@@ -219,18 +223,18 @@ export default function RSVP() {
                       required={field.name !== "guests"}
                       className="w-full rounded-xl outline-none transition-all duration-300"
                       style={{
-                        background: "rgba(0, 0, 0, 0.08)",
+                        background: "rgba(0, 0, 0, 0.04)",
                         border: `1px solid ${focusedField === field.name
                             ? "rgba(212,175,55,0.5)"
-                            : "rgba(255,255,255,0.08)"
+                            : "rgba(0, 0, 0, 0.06)"
                           }`,
                         padding:
                           focusedField === field.name || formData[field.name]
-                            ? "22px 20px 10px 40px"
-                            : "16px 20px 16px 40px",
-                        color: "#000000ff",
+                            ? "26px 20px 10px 44px"
+                            : "18px 20px 18px 44px",
+                        color: "#000000",
                         fontFamily: "var(--font-inter)",
-                        fontSize: "0.9rem",
+                        fontSize: "1.05rem",
                         boxShadow:
                           focusedField === field.name
                             ? "0 0 20px rgba(212,175,55,0.1)"
@@ -259,16 +263,16 @@ export default function RSVP() {
                     color:
                       focusedField === "message" || formData.message
                         ? "#D4AF37"
-                        : "rgba(0, 0, 0, 0.7)",
+                        : "rgba(21, 0, 0, 0.6)",
                     fontFamily: "var(--font-inter)",
                     fontSize:
                       focusedField === "message" || formData.message
-                        ? "0.7rem"
-                        : "0.9rem",
+                        ? "0.75rem"
+                        : "1.05rem",
                     top:
                       focusedField === "message" || formData.message
                         ? "8px"
-                        : "18px",
+                        : "20px",
                     transition: "all 0.3s ease",
                     letterSpacing: "1px",
                   }}
@@ -282,7 +286,7 @@ export default function RSVP() {
                     color={
                       focusedField === "message"
                         ? "#D4AF37"
-                        : "rgba(0, 0, 0, 0.7)"
+                        : "rgba(0, 0, 0, 0.55)"
                     }
                     style={{ transition: "color 0.3s ease" }}
                   />
@@ -297,16 +301,16 @@ export default function RSVP() {
                   rows={4}
                   className="w-full rounded-xl outline-none transition-all duration-300 resize-none"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
+                    background: "rgba(0, 0, 0, 0.04)",
                     border: `1px solid ${focusedField === "message"
                         ? "rgba(212,175,55,0.5)"
-                        : "rgba(0, 0, 0, 0.08)"
+                        : "rgba(0, 0, 0, 0.06)"
                       }`,
                     padding:
                       focusedField === "message" || formData.message
-                        ? "24px 20px 12px 40px"
-                        : "16px 20px 16px 40px",
-                    color: "#010101ff",
+                        ? "26px 20px 12px 44px"
+                        : "18px 20px 18px 44px",
+                    color: "#000000",
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.9rem",
                     boxShadow:
@@ -319,7 +323,7 @@ export default function RSVP() {
 
               {/* Submit Button */}
               <motion.div
-                style={{ paddingTop: "1rem" }}
+                style={{ paddingTop: "0.5rem" }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -332,9 +336,10 @@ export default function RSVP() {
                 <button
                   type="submit"
                   className="btn-gold w-full flex items-center justify-center gap-3"
+                  style={{ padding: "18px 40px", fontSize: "1.05rem", borderRadius: "50px" }}
                 >
                   <span>Send Wishes</span>
-                  <Send size={16} />
+                  <Send size={18} />
                 </button>
               </motion.div>
             </form>

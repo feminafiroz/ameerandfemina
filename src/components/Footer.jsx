@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative overflow-hidden  flex flex-col items-center justify-center overflow-hidden "  style={{ paddingTop: "3rem",}}>
+      className="relative overflow-hidden  flex flex-col items-center justify-center overflow-hidden "  style={{ paddingTop: "3rem", paddingBottom: "1rem" , paddingLeft: "1rem",paddingRight: "1rem"}}>
 
       {/* Background */}
       <div
@@ -28,13 +28,13 @@ export default function Footer() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <p
-            className="text-xl md:text-5xl"
-            style={{
-              marginBottom: "0.5rem",
-              color: "rgba(212,175,55,0.9)",
+            className="text-4xl md:text-5xl"
+           style={{
+              marginBottom: "1rem",
+              color: "#C99A2E",
               fontFamily: "serif",
               direction: "rtl",
-              lineHeight: 2,
+              lineHeight: 1.2,
             }}
           >
             بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي
@@ -205,7 +205,7 @@ export default function Footer() {
         >
           <p
             className="text-[10px] tracking-[4px] uppercase"
-            style={{ color: "rgba(255,255,255,0.8)" }}
+            style={{ color: "rgba(0, 0, 0, 0.8)" }}
           >
             &copy; 2026 Ameer & Femina
           </p>

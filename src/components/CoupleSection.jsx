@@ -7,7 +7,7 @@ export default function CoupleSection() {
   return (
     <section
       id="couple"
-      className="relative overflow-hidden  flex flex-col items-center justify-center overflow-hidden "  style={{ paddingTop: "6rem", paddingBottom: "6rem" }}
+      className="relative overflow-hidden  flex flex-col items-center justify-center overflow-hidden "  style={{ paddingTop: "6rem", paddingBottom: "6rem" , paddingLeft:"0.5rem",paddingRight:"0.5rem"}}
     >
       {/* Background Accent */}
       {/* <div
