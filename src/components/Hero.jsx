@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
@@ -18,14 +16,63 @@ export default function Hero() {
       className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{ backgroundColor: "#F5EEDC" }}
     >
+      {/* Animations */}
+      <style>{`
+        @keyframes goldShimmer {
+          0%   { background-position: 0% center; }
+          100% { background-position: 200% center; }
+        }
+        .name-shimmer {
+          background: linear-gradient(90deg, #B8860B 0%, #D4AF37 30%, #FFD700 50%, #D4AF37 70%, #B8860B 100%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: goldShimmer 3.5s linear infinite;
+          filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        @keyframes btnSheen {
+          0%, 100% { left: -75%; }
+          50%       { left: 125%; }
+        }
+        .btn-gold {
+          position: relative;
+          overflow: hidden;
+        }
+        .btn-gold::after {
+          content: '';
+          position: absolute;
+          top: -50%; left: -75%;
+          width: 50%; height: 200%;
+          background: rgba(255,255,255,0.2);
+          transform: skewX(-20deg);
+          animation: btnSheen 4s 3s ease-in-out infinite;
+        }
+        @keyframes petalFall {
+          0%   { transform: translateY(-10px) rotate(0deg);   opacity: 0; }
+          10%  { opacity: 1; }
+          90%  { opacity: 0.6; }
+          100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        @keyframes sway {
+          0%, 100% { margin-left: 0px; }
+          50%       { margin-left: 18px; }
+        }
+        .petal {
+          position: absolute;
+          top: -30px;
+          pointer-events: none;
+          animation: petalFall linear infinite, sway ease-in-out infinite;
+        }
+      `}</style>
       {/* Background Image (Desktop Only) */}
       <div
-        className="absolute inset-0 z-0 hidden md:block opacity-15 bg-cover bg-center pointer-events-none"
+        className="absolute inset-0 z-0 block opacity-15 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: "url('/images/herobg.webp')" }}
       />
 
       {/* Background Swiper (Mobile Only) */}
-      <div className="absolute inset-0 z-0 md:hidden pointer-events-none">
+      {/* <div className="absolute inset-0 z-0 md:hidden pointer-events-none">
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -52,7 +99,7 @@ export default function Hero() {
             )
           )}
         </Swiper>
-      </div>
+      </div> */}
 
       {/* Background Gradient Layers */}
       <div className="absolute inset-0 z-0">
@@ -117,8 +164,10 @@ export default function Hero() {
         {/* Bismillah */}
         <motion.div
           className=""
-          style={{ color: "rgba(138,115,85,0.8)", fontFamily: "serif", fontSize: "clamp(2.4rem, 10vw, 2.6rem)",
-            direction: "rtl", textAlign: "center", marginBottom: "0.5rem" }}
+          style={{
+            color: "rgba(138,115,85,0.8)", fontFamily: "serif", fontSize: "clamp(2.4rem, 10vw, 2.6rem)",
+            direction: "rtl", textAlign: "center", marginBottom: "0.5rem"
+          }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -129,7 +178,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           className="text-sm md:text-lg tracking-[6px] md:tracking-[8px] uppercase mb-4"
-          style={{ color: "#8A7355", fontFamily: "var(--font-inter)" , marginBottom: "0.5rem" }}
+          style={{ color: "#8A7355", fontFamily: "var(--font-inter)", marginBottom: "0.5rem" }}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -145,39 +194,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* ── NEW: Shimmer on names via CSS animation injected inline ── */}
-          <style>{`
-            @keyframes goldShimmer {
-              0%   { background-position: 0% center; }
-              100% { background-position: 200% center; }
-            }
-            .name-shimmer {
-              background: linear-gradient(90deg, #B8860B 0%, #D4AF37 30%, #FFD700 50%, #D4AF37 70%, #B8860B 100%);
-              background-size: 200% auto;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              background-clip: text;
-              animation: goldShimmer 3.5s linear infinite;
-              filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-            }
-            @keyframes btnSheen {
-              0%, 100% { left: -75%; }
-              50%       { left: 125%; }
-            }
-            .btn-gold {
-              position: relative;
-              overflow: hidden;
-            }
-            .btn-gold::after {
-              content: '';
-              position: absolute;
-              top: -50%; left: -75%;
-              width: 50%; height: 200%;
-              background: rgba(255,255,255,0.2);
-              transform: skewX(-20deg);
-              animation: btnSheen 4s 3s ease-in-out infinite;
-            }
-          `}</style>
+
 
           <span className="block name-shimmer">Ameer</span>
 
@@ -217,13 +234,16 @@ export default function Hero() {
 
         {/* Date */}
         <motion.p
-          className="text-sm md:text-lg tracking-[4px] md:tracking-[6px] uppercase "
+          className="text-sm md:text-lg tracking-[4px] md:tracking-[6px] uppercase"
           style={{ color: "#1A1A1A", fontFamily: "var(--font-cormorant)", fontWeight: 500, letterSpacing: "0.3em", paddingBottom: "20px", paddingTop: "20px" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          Monday, September 21th, 2026
+          Monday, September{" "}
+          <span style={{ fontSize: "1.6em", fontWeight: 600, color: "#3a3a3aff" }}>21</span>
+          th,{" "}
+          <span style={{ fontSize: "1.6em", fontWeight: 600, color: "#3a3a3aff" }}>2026</span>
         </motion.p>
 
         {/* Open Invitation Button */}
@@ -237,6 +257,80 @@ export default function Hero() {
             <span>Open Invitation</span>
           </button>
         </motion.div> */}
+      </div>
+
+      {/* ── Mobile Only: Decorative Border Frame ── */}
+      <div
+        className="md:hidden absolute inset-4 pointer-events-none z-20"
+        style={{ border: "1px solid rgba(212,175,55,0.35)", borderRadius: "2px" }}
+      >
+        {/* Inner border offset */}
+        <div
+          style={{
+            position: "absolute",
+            inset: "6px",
+            border: "1px solid rgba(212,175,55,0.15)",
+            borderRadius: "1px",
+          }}
+        />
+        {/* Corner flourish — top left */}
+        <svg style={{ position: "absolute", top: -1, left: -1 }} width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M2 42 L2 12 Q2 2 12 2 L42 2" stroke="#D4AF37" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+          <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.7" />
+          <path d="M8 36 L8 14 Q8 8 14 8 L36 8" stroke="#D4AF37" strokeWidth="0.5" fill="none" strokeLinecap="round" opacity="0.5" />
+        </svg>
+        {/* Corner flourish — top right */}
+        <svg style={{ position: "absolute", top: -1, right: -1, transform: "scaleX(-1)" }} width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M2 42 L2 12 Q2 2 12 2 L42 2" stroke="#D4AF37" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+          <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.7" />
+          <path d="M8 36 L8 14 Q8 8 14 8 L36 8" stroke="#D4AF37" strokeWidth="0.5" fill="none" strokeLinecap="round" opacity="0.5" />
+        </svg>
+        {/* Corner flourish — bottom left */}
+        <svg style={{ position: "absolute", bottom: -1, left: -1, transform: "scaleY(-1)" }} width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M2 42 L2 12 Q2 2 12 2 L42 2" stroke="#D4AF37" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+          <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.7" />
+          <path d="M8 36 L8 14 Q8 8 14 8 L36 8" stroke="#D4AF37" strokeWidth="0.5" fill="none" strokeLinecap="round" opacity="0.5" />
+        </svg>
+        {/* Corner flourish — bottom right */}
+        <svg style={{ position: "absolute", bottom: -1, right: -1, transform: "scale(-1,-1)" }} width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M2 42 L2 12 Q2 2 12 2 L42 2" stroke="#D4AF37" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+          <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.7" />
+          <path d="M8 36 L8 14 Q8 8 14 8 L36 8" stroke="#D4AF37" strokeWidth="0.5" fill="none" strokeLinecap="round" opacity="0.5" />
+        </svg>
+      </div>
+
+      {/* ── Mobile Only: Falling Hearts ── */}
+      <div className="md:hidden absolute inset-0 overflow-hidden pointer-events-none z-5">
+        {[
+          { left: "8%", delay: "0s", dur: "6s", size: 18 },
+          { left: "22%", delay: "1.5s", dur: "8s", size: 14 },
+          { left: "38%", delay: "0.8s", dur: "7s", size: 12 },
+          { left: "55%", delay: "2.2s", dur: "9s", size: 16 },
+          { left: "68%", delay: "0.3s", dur: "6.5s", size: 14 },
+          { left: "80%", delay: "1.8s", dur: "7.5s", size: 12 },
+          { left: "14%", delay: "3.0s", dur: "8.5s", size: 10 },
+          { left: "90%", delay: "2.6s", dur: "6.8s", size: 13 },
+        ].map((p, i) => (
+          <svg
+            key={i}
+            className="petal"
+            style={{
+              left: p.left,
+              width: p.size,
+              height: p.size,
+              animationDuration: `${p.dur}, ${parseFloat(p.dur) * 0.9}s`,
+              animationDelay: `${p.delay}, ${p.delay}`,
+              opacity: 0,
+            }}
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"
+              fill="rgba(212,175,55,0.5)"
+            />
+          </svg>
+        ))}
       </div>
 
       {/* Scroll Indicator */}

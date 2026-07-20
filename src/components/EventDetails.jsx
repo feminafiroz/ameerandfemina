@@ -13,7 +13,7 @@ const events = [
     location: "Vypin",
     mapUrl: "https://maps.app.goo.gl/FMgKTXZ6JcUvumz18",
   },
- 
+  
   {
     kicker: "Evening Celebration",
     title: "Reception",
